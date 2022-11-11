@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() => runApp(const HelperMethods());
 
 class HelperMethods extends StatelessWidget {
   const HelperMethods({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -17,6 +17,7 @@ class HelperMethods extends StatelessWidget {
 
 class CalendarHelperMethods extends StatefulWidget {
   const CalendarHelperMethods({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => ScheduleExample();
 }
@@ -93,7 +94,7 @@ class ScheduleExample extends State<CalendarHelperMethods> {
     await showDialog(
       builder: (context) => AlertDialog(
         contentPadding: const EdgeInsets.all(16.0),
-        content: Text("Subject:" + patternAppointment.subject),
+        content: Text("Subject:${patternAppointment.subject}"),
         actions: <Widget>[
           TextButton(
               child: const Text('OK'),
@@ -117,11 +118,10 @@ class ScheduleExample extends State<CalendarHelperMethods> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Subject: " + occurrenceAppointment.subject.toString(),
+              "Subject: ${occurrenceAppointment.subject}",
             ),
             Text(
-              "Recurrence rule: " +
-                  occurrenceAppointment.recurrenceRule.toString(),
+              "Recurrence rule: ${occurrenceAppointment.recurrenceRule}",
               textAlign: TextAlign.center,
             ),
           ],
