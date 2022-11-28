@@ -6,81 +6,11 @@ Using the [getPatternAppointment](https://pub.dev/documentation/syncfusion_flutt
 
 ## Getting the pattern appointment
 
-You can collect the information of the pattern appointment from the Flutter calendar by using the getPatternAppointment method. 
-
-```
-Center(
-child: TextButton(
-onPressed: _showPatternAppointment,
-child: const Text("Click to get pattern appointment"),
-),
-),
-_showPatternAppointment() async {
-  final Appointment patternAppointment =
-  _dataSource.getPatternAppointment(recurrenceApp, '') as Appointment;
-  await showDialog(
-    builder: (context) => AlertDialog(
-      contentPadding: const EdgeInsets.all(16.0),
-      content: Text("Subject:" + patternAppointment.subject),
-      actions: <Widget>[
-        TextButton(
-            child: const Text('OK'),
-            onPressed: () {
-              Navigator.pop(context);
-            })
-      ],
-    ),
-    context: context,
-  );
-}
-
-```
+You can collect the information of the pattern appointment from the Flutter calendar by using the getPatternAppointment method. The occurrenceAppointment is necessary in order to receive the Pattern appointment.
 
 ## Getting the occurrence appointment
 
-You can collect the information of the occurrence appointment from the Flutter calendar by using the getOccurrenceAppointment method.
-
-```
-Center(
-child: TextButton(
-onPressed: _showOccurrenceAppointment,
-child: const Text("Click to get occurrence appointment"),
-),
-),
-
-_showOccurrenceAppointment() async {
-  final DateTime date = DateTime.now();
-  final Appointment occurrenceAppointment = _dataSource
-      .getOccurrenceAppointment(recurrenceApp, date, '') as Appointment;
-  await showDialog(
-    builder: (context) => AlertDialog(
-      contentPadding: const EdgeInsets.all(16.0),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            "Subject: " + occurrenceAppointment.subject.toString(),
-          ),
-          Text(
-            "Recurrence rule: " +
-                occurrenceAppointment.recurrenceRule.toString(),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-      actions: <Widget>[
-        TextButton(
-            child: const Text('OK'),
-            onPressed: () {
-              Navigator.pop(context);
-            })
-      ],
-    ),
-    context: context,
-  );
-}
-
-```
+You can collect the information of the occurrence appointment from the Flutter calendar by using the getOccurrenceAppointment method. If there is no appointment occurring on the date specified, null is returned.
 
 You can also refer our UG documentation to know more about [getPatternAppointment](https://help.syncfusion.com/flutter/calendar/appointments#get-pattern-appointment) and [getOccurrenceAppointment](https://help.syncfusion.com/flutter/calendar/appointments#get-occurrence-appointment) in the Flutter calendar.
 
